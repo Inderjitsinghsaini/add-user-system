@@ -1,4 +1,6 @@
 export default {
+    name: "TheSplashComponent",
+
     template: `
     <section>
         <h1>Add a User With This Fancy Form!</h1>

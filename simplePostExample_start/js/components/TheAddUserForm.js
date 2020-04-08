@@ -33,7 +33,27 @@ export default {
 
     methods: {
         addUser() {
-            debugger;
+            //debugger;
+            let url = "./admin/index.php?add_user=true",
+            userData = new FormData(document.querySelector("form"));
+
+            fetch(url, {
+                method: 'POST',
+                body: userData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.result == true){
+                    alert('added a new user!')
+                } else{
+                   alert(`couldn\'t add user: ${data.result}`) 
+                }
+                
+            })
+            .catch((err) => console.error(err));
+            
+        
         }
+
     }
 }

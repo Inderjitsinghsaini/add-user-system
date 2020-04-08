@@ -16,6 +16,7 @@
     
     function addUser($conn) {
         // var_dump($_POST);
+        //echo "hit add user route";
 
         $newUserQuery = $conn->prepare("INSERT INTO user (first_name, last_name, password, role) VALUES (:fname, :lname, :pword, :myrole)");
 
@@ -26,7 +27,7 @@
             ':myrole' => $_POST['role']
         ));
 
-        if ($newUserResult) {
+        if ($newUserResult > 0) {
             // success
             //echo 'added user';
             return array('result' => $newUserResult);
